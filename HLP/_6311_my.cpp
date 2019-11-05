@@ -15,9 +15,9 @@ int ss[10]={196,64,195,195,71,135,135,192,199,199};
 
 void fill_mem(uint8_t value, uint8_t number_of_bytes, uint8_t start_addr)
 {
-    pt6311_driver.addrSetCmd(start_addr); 
+  pt6311_driver.addrSetCmd(start_addr); 
 	pt6311_driver.displayMemWriteCmd(true, false);
-    for (uint8_t i = 0; i < number_of_bytes; i++)
+  for (uint8_t i = 0; i < number_of_bytes; i++)
     {
         pt6311_driver.data(value, false, ((i + 1) == number_of_bytes));
     }
@@ -57,7 +57,7 @@ void writepos(int pos,int lo, int hi, int loa, int hia){
 }
 /////////////////////////////////////////////////////////
 // copy local screen array to VFD
-int[10][2] screen;
+uint8_t[10][2] screen;
 void writearr(void){
 	for (int i=0;i<10;i++){
 		writepos(i,screen[i][0], screen[i][1], 0, 0);
